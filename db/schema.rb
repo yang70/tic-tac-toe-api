@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 2019_03_15_220758) do
     t.text "board", default: [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]], array: true
     t.integer "turn_count", default: -1
     t.text "winning_coordinates", array: true
+    t.integer "wins_x"
+    t.integer "wins_y"
+    t.integer "draws"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
