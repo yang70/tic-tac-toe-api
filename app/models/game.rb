@@ -49,9 +49,28 @@ class Game < ApplicationRecord
       if self.turn_count == 9
         self.winner = "draw" unless self.winner
       end
+      
+      if self.winner
+        self.wins_x = Game.where( winner: "X" ).count
+        self.wins_o = Game.where( winner: "O" ).count
+        self.draws  = Game.where( winner: "draw" ).count
+        
+        iterate_winner_count
+      end
     end
     
     
     self.turn = self.turn == "X" ? "O" : "X" unless self.winner
+  end
+  
+  def iterate_winner_count
+    case self.winner
+    when "O"
+      self.wins_o += 1
+    when "X"
+      self.wins_x += 1
+    else
+      self.draws += 1
+    end
   end
 end

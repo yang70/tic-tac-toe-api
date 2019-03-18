@@ -11,7 +11,7 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.integer :turn_count, default: -1
       t.text :winning_coordinates, array: true
       t.integer :wins_x
-      t.integer :wins_y
+      t.integer :wins_o
       t.integer :draws
 
       t.timestamps
